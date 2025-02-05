@@ -1,0 +1,25 @@
+created:
+    - database/factories/ProjectFactory.php
+    - database/factories/IssueFactory.php
+    - database/factories/CommentFactory.php
+    - database/factories/LabelFactory.php
+    - app/Models/Project.php
+    - app/Models/Issue.php
+    - app/Models/Comment.php
+    - app/Models/Label.php
+deleted:
+    - database/migrations/2025_02_04_204323_create_projects_table.php
+    - database/migrations/2025_02_04_204324_create_issues_table.php
+    - database/migrations/2025_02_04_204325_create_comments_table.php
+    - database/migrations/2025_02_04_204326_create_labels_table.php
+updated:
+    - database/migrations/2025_02_04_204257_create_projects_table.php
+    - database/migrations/2025_02_04_204258_create_issues_table.php
+    - database/migrations/2025_02_04_204259_create_comments_table.php
+    - database/migrations/2025_02_04_204300_create_labels_table.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Project: { name: string, description: 'text, nullable', user_id: unsignedInteger, status: string, visibility: string }
+    Issue: { project_id: unsignedInteger, title: string, description: 'text, nullable', status: string, priority: string, assignee_id: 'unsignedInteger, nullable' }
+    Comment: { issue_id: unsignedInteger, user_id: unsignedInteger, content: text }
+    Label: { name: string, color: string, description: 'text, nullable' }
